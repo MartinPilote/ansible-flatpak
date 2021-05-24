@@ -1,0 +1,15 @@
+---
+- name: Install flatpak package
+  package:
+    name: flatpak
+    state: latest
+
+- name: Add flathub repo
+  tags: packages,flatpak,workstation-packages
+  become_user: martin
+  flatpak_remote:
+    name: flathub
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+    method: user
+    state: present
+...
